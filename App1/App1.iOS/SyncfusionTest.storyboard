@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Syncfusion Test-->
+        <scene sceneID="BVu-3R-s8O">
+            <objects>
+                <viewController id="CvL-6u-7UH" customClass="SyncfusionTest" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YVn-6Q-KUP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SyncfusionTest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0C-gV-Wyg">
+                                <rect key="frame" x="26" y="63" width="362" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqK-gd-V1k" customClass="FlexGrid">
+                                <rect key="frame" x="20" y="92" width="374" height="770"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="g02-1j-ArS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g02-1j-ArS" firstAttribute="trailing" secondItem="u0C-gV-Wyg" secondAttribute="trailing" constant="26" id="2h9-qj-OOB"/>
+                            <constraint firstItem="xqK-gd-V1k" firstAttribute="bottom" secondItem="g02-1j-ArS" secondAttribute="bottom" id="3mo-Nr-zIF"/>
+                            <constraint firstItem="u0C-gV-Wyg" firstAttribute="leading" secondItem="g02-1j-ArS" secondAttribute="leading" constant="26" id="EgB-cf-ckc"/>
+                            <constraint firstItem="g02-1j-ArS" firstAttribute="trailing" secondItem="xqK-gd-V1k" secondAttribute="trailing" constant="20" id="doB-fE-qbc"/>
+                            <constraint firstItem="xqK-gd-V1k" firstAttribute="top" secondItem="u0C-gV-Wyg" secondAttribute="bottom" constant="8" symbolic="YES" id="f5z-p2-8rW"/>
+                            <constraint firstItem="xqK-gd-V1k" firstAttribute="leading" secondItem="g02-1j-ArS" secondAttribute="leading" constant="20" id="lPX-aQ-1Qm"/>
+                            <constraint firstItem="u0C-gV-Wyg" firstAttribute="top" secondItem="g02-1j-ArS" secondAttribute="top" constant="19" id="uae-Ae-hFD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="FlexGridView" destination="xqK-gd-V1k" id="3s6-IT-Neg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nqi-Q4-Yjc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.91304347826087" y="-159.375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

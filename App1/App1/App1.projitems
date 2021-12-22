@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{D5DDE6B8-5B75-4272-A79E-6E0939B31961}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>App1</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DataAdapters\Abstract\BaseDataSourceMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataAdapters\Customer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataAdapters\CustomerDataSourceMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataAdapters\DataSourceMappers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\Common.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
+  </ItemGroup>
+</Project>

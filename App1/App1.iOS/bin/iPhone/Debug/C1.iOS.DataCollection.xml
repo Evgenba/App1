@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C1.iOS.DataCollection</name>
+    </assembly>
+    <members>
+        <member name="T:C1.iOS.DataCollection.C1CollectionViewSource`1">
+            <summary>
+            This class is the bridge between <see cref="T:UIKit.UICollectionView"/> and <see cref="T:C1.DataCollection.C1DataCollection`1"/>.
+            Using this class you'll get built-in sort, filter, grouping, refresh and load-on-demand features.
+            </summary>
+            <remarks>
+            Inherit this class and implement <see cref="M:GetItemCell"/> to set the cell appearance as you wish.
+            </remarks>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1CollectionViewSource`1.#ctor(UIKit.UICollectionView)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.DataCollection.C1CollectionViewSource`1"/> class.
+            </summary>
+            <param name="collectionView">The collection view.</param>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1CollectionViewSource`1.CollectionView">
+            <summary>
+            Gets the table view used to display the items.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1CollectionViewSource`1.CollectionViewLayout">
+            <summary>
+            Gets or sets the collection view layout.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1CollectionViewSource`1.DataCollection">
+            <summary>
+            Gets the data collection which provides the data items.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1CollectionViewSource`1.ItemsSource">
+            <summary>
+            Gets or sets the data collection which provides the data items.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1CollectionViewSource`1.RefreshControl">
+            <summary>
+            Gets the refresh control used by the user to refresh the list.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1CollectionViewSource`1.EmptyMessageLabel">
+            <summary>
+            Gets the label displayed when there are no items.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1CollectionViewSource`1.GetItemCell(UIKit.UICollectionView,Foundation.NSIndexPath,`0)">
+            <summary>
+            Gets the visual element representing an item.
+            </summary>
+            <param name="collectionView">The collection view.</param>
+            <param name="indexPath">Location of the row where the cell will be displayed.</param>
+            <param name="item">The data item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1CollectionViewSource`1.GetGroupCell(UIKit.UICollectionView,Foundation.NSIndexPath,C1.DataCollection.IDataCollectionGroup{System.Object,System.Object})">
+            <summary>
+            Gets the visual element representing a group(header) cell.
+            </summary>
+            <param name="collectionView">The collection view.</param>
+            <param name="indexPath">The index path.</param>
+            <param name="group">The group data item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1CollectionViewSource`1.GetItem(Foundation.NSIndexPath)">
+            <summary>
+            Gets an item from the <see cref="T:UIKit.UITableView"/> <see cref="T:Foundation.NSIndexPath"/>.
+            </summary>
+            <param name="indexPath">The index path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1CollectionViewSource`1.NumberOfSections(UIKit.UICollectionView)">
+            <summary>
+            Returns the number of sections that are required to display the data.
+            </summary>
+            <param name="collectionView">Collection view displaying the sections.</param>
+            <returns>
+            Number of sections required to display the data. The default is 1 (a collection must
+            have at least one section).
+            </returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1CollectionViewSource`1.GetItemsCount(UIKit.UICollectionView,System.nint)">
+            <summary>
+            Called by the collection view to find out how many items are to be rendered in the
+            section specified by section.
+            </summary>
+            <param name="collectionView">Collection view displaying the items.</param>
+            <param name="section">Index of the section containing the items.</param>
+            <returns>Number of items in the section at index section.</returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1CollectionViewSource`1.GetCell(UIKit.UICollectionView,Foundation.NSIndexPath)">
+            <summary>
+            Called by the table view to get populate the row at indexPath with a cell view.
+            </summary>
+            <param name="collectionView">Table view requesting the cell.</param>
+            <param name="indexPath">Location of the row where the cell will be displayed.</param>
+            <returns>
+            An object that inherits from UIKit.UITableViewCell that the table can use for
+            the specified row. Do not return null or an assertion will be raised.
+            </returns>
+        </member>
+        <member name="T:C1.iOS.DataCollection.C1CollectionViewFlowLayout">
+            <summary>
+            <see cref="T:UIKit.UICollectionView"/> layout which shows an <see cref="T:UIKit.UIActivityIndicatorView"/> as a decorator in the bottom of the list to indicate more items are being loaded.
+            </summary>
+            <seealso cref="T:UIKit.UICollectionViewFlowLayout" />
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1CollectionViewFlowLayout.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.DataCollection.C1CollectionViewFlowLayout"/> class.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1CollectionViewFlowLayout.ActivityIndicatorViewStyle">
+            <summary>
+            Gets or sets the activity indicator view style.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1CollectionViewFlowLayout.ShowActivityIndicator">
+            <summary>
+            Gets a value indicating whether the activity indicator is displayed.
+            </summary>
+        </member>
+        <member name="T:C1.iOS.DataCollection.C1TableViewSource`1">
+            <summary>
+            This class is the bridge between <see cref="T:UIKit.UITableView"/> and <see cref="T:C1.DataCollection.C1DataCollection`1"/>.
+            Using this class you'll get built-in sort, filter, grouping, refresh and load-on-demand features.
+            </summary>
+            <remarks>
+            Inherit this class and implement <see cref="M:GetItemCell"/> and <see cref="M:GetGroupTitle"/> to set the cell appeareance as you wish.
+            </remarks>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1TableViewSource`1.#ctor(UIKit.UITableView)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.DataCollection.C1TableViewSource`1"/> class.
+            </summary>
+            <param name="tableView">The table view.</param>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1TableViewSource`1.TableView">
+            <summary>
+            Gets the table view used to display the items.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1TableViewSource`1.ItemsSource">
+            <summary>
+            Gets or sets the items source which provides the data items.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1TableViewSource`1.DataCollection">
+            <summary>
+            Gets the data collection which provides the data items.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1TableViewSource`1.RefreshControl">
+            <summary>
+            Gets the refresh control used by the user to refresh the list.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.DataCollection.C1TableViewSource`1.EmptyMessageLabel">
+            <summary>
+            Gets the label displayed when there are no items.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1TableViewSource`1.GetItemCell(UIKit.UITableView,Foundation.NSIndexPath,`0)">
+            <summary>
+            Gets the visual element representing an item.
+            </summary>
+            <param name="tableView">The table view.</param>
+            <param name="indexPath">Location of the row where the cell will be displayed.</param>
+            <param name="item">The data item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1TableViewSource`1.GetGroupTitle(UIKit.UITableView,C1.DataCollection.IDataCollectionGroup{System.Object,System.Object})">
+            <summary>
+            Gets the title of a group.
+            </summary>
+            <param name="tableView">The table view.</param>
+            <param name="group">The group.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1TableViewSource`1.GetItem(Foundation.NSIndexPath)">
+            <summary>
+            Gets an item from the <see cref="T:UIKit.UITableView"/> <see cref="T:Foundation.NSIndexPath"/>.
+            </summary>
+            <param name="indexPath">The index path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1TableViewSource`1.NumberOfSections(UIKit.UITableView)">
+            <summary>
+            Returns the number of sections that are required to display the data.
+            </summary>
+            <param name="tableView">Table view displaying the sections.</param>
+            <returns>
+            Number of sections required to display the data. The default is 1 (a table must
+            have at least one section).
+            </returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1TableViewSource`1.RowsInSection(UIKit.UITableView,System.nint)">
+            <summary>
+            Called by the table view to find out how many rows are to be rendered in the
+            section specified by section.
+            </summary>
+            <param name="tableview">Table view displaying the rows.</param>
+            <param name="section">Index of the section containing the rows.</param>
+            <returns>Number of rows in the section at index section.</returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1TableViewSource`1.TitleForHeader(UIKit.UITableView,System.nint)">
+            <summary>
+            Called to populate the header for the specified section.
+            </summary>
+            <param name="tableView">Table view containing the section.</param>
+            <param name="section">Index of the section displaying the header.</param>
+            <returns>Text to display in the section header, or null if no title is required.</returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1TableViewSource`1.GetCell(UIKit.UITableView,Foundation.NSIndexPath)">
+            <summary>
+            Called by the table view to get populate the row at indexPath with a cell view.
+            </summary>
+            <param name="tableView">Table view requesting the cell.</param>
+            <param name="indexPath">Location of the row where the cell will be displayed.</param>
+            <returns>
+            An object that inherits from UIKit.UITableViewCell that the table can use for
+            the specified row. Do not return null or an assertion will be raised.
+            </returns>
+        </member>
+        <member name="M:C1.iOS.DataCollection.C1TableViewSource`1.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+    </members>
+</doc>

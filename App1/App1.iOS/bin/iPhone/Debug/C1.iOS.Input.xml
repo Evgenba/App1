@@ -1,0 +1,1329 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C1.iOS.Input</name>
+    </assembly>
+    <members>
+        <member name="T:C1.iOS.Input.C1TextBox">
+            <summary>
+            Represents a control that can be used to display and edit plain text,
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1TextBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1TextBox"/> class.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1TextBox.BackgroundColor">
+            <summary>
+            Gets or sets the color of the background.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1TextBox.BorderColor">
+            <summary>
+            Gets or sets the color of the border.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1TextBox.BorderThickness">
+            <summary>
+            Gets or sets the border thickness.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1TextBox.BorderRadius">
+            <summary>
+            Gets or sets the border radius.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1TextBox.Padding">
+            <summary>
+            Gets or sets the padding.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1TextBox.Delay">
+            <summary>
+             Gets or sets the delay that occurs between the key strokes and the text changed event.
+            </summary>
+            <remarks>
+            Setting this delay to something bigger than zero allows skipping unnecessary events when the text box is used in filtering scenarios.
+            </remarks>
+        </member>
+        <member name="P:C1.iOS.Input.C1TextBox.AutoCompleteText">
+            <summary>
+            Gets the auto-completed text.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1TextBox.AutoComplete">
+            <summary>
+            Gets or sets the callback used to provide the auto-completion text.
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.TextBoxAutoCompleteEventArgs">
+            <summary>
+            Contains information about the <see cref="E:C1.iOS.Input.C1TextBox.AutoComplete"/>.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.TextBoxAutoCompleteEventArgs.Text">
+            <summary>
+            Gets or sets the text that is being auto-completed.
+            </summary>
+            <remarks>
+            Use this property to correct the capitalization of the entered text.
+            </remarks>
+        </member>
+        <member name="P:C1.iOS.Input.TextBoxAutoCompleteEventArgs.AutoComplete">
+            <summary>
+            Gets or sets the text used to auto-complete.
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.AutoCompleteMode">
+            <summary>
+            Specifies how to filter items of autocomplete.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.AutoCompleteMode.StartsWith">
+            <summary>
+            Filtering items of autocomplete when starts with the input string
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.AutoCompleteMode.Contains">
+            <summary>
+            Filtering items of autocomplete when contains the input string. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.AutoCompleteMode.EndsWith">
+            <summary>
+            Filtering items of autocomplete when ends with the input string
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.AutoCompleteMode.MatchCase">
+            <summary>
+            Filtering items of autocomplete when contains the input string that match case. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.AutoCompleteMode.MatchWholeWord">
+            <summary>
+            Filtering items of autocomplete when contains the input string that match whole word. 
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.ComboBoxItemLoadingEventArgs">
+            <summary>
+            Event information for <see cref="E:C1ComboBox.ItemLoading"/> event.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.ComboBoxItemLoadingEventArgs.Item">
+            <summary>
+            Gets the items that is being loaded.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.ComboBoxItemLoadingEventArgs.ItemView">
+            <summary>
+            Gets or sets the visual element corresponding to the loading item.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.ComboBoxItemLoadingEventArgs.GetReusableItemView(System.String)">
+            <summary>
+            Gets a reusable item view.
+            </summary>
+            <param name="cellIdentifier">The cell identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:C1.iOS.Input.CompletedEventArgs">
+            <summary>
+            Occurs when the user finalizes the text in an entry with the return key.
+            </summary>
+            <seealso cref="T:System.EventArgs" />
+        </member>
+        <member name="P:C1.iOS.Input.CompletedEventArgs.value">
+            <summary>
+            Gets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="M:C1.iOS.Input.CompletedEventArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.CompletedEventArgs"/> class.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:C1.iOS.Input.TextChangedEventArgs">
+            <summary>
+            Event information for <see cref="E:C1ComboBox.TextChanged"/> event.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.TextChangedEventArgs.OldText">
+            <summary>
+            Gets the old text in the ComboBox.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.TextChangedEventArgs.NewText">
+            <summary>
+            Gets the new text in the ComboBox.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.TextChangedEventArgs.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.TextChangedEventArgs"/> class.
+            </summary>
+            <param name="oldText">The old text in the ComboBox.</param>
+            <param name="newText">The new text in the ComboBox.</param>
+        </member>
+        <member name="T:C1.iOS.Input.C1MaskedTextField">
+            <summary>
+            Masked editor provides a way to govern what a user is allowed to input. 
+            The control prevents users from accidentally entering invalid data and saves time by skipping over literals (such as slashes in dates) as the user types. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.MaskProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.Mask"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.PromptCharProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.PromptChar"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.Value"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.ShowClearButtonProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.ShowClearButton"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.FlowDirectionProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.FlowDirection"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.TextProperty">
+            <summary>
+            Inentifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.Text"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.PlaceholderProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.Placeholder"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.FontSizeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.FontSize"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.FontFamilyProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.FontFamily"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.FontAttributesProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.FontAttributes"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.TextColorProperty">
+            <summary>
+            Identifies the TextColor dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.PlaceholderColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.PlaceholderColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.TextAlignmentProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.TextAlignment"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.KeyboardTypeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.KeyboardType"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1MaskedTextField.SecureTextEntryProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1MaskedTextField.SecureTextEntry"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.SetValue(C1.iOS.Core.DependencyProperty,System.Object)">
+            <summary>
+            Set property value.
+            </summary>
+            <param name="dp">The property.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.GetValue(C1.iOS.Core.DependencyProperty)">
+            <summary>
+            Get property value.
+            </summary>
+            <param name="dp">The property.</param>
+            <returns>Property value.</returns>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1MaskedTextField"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.AwakeFromNib">
+            <summary>
+            Called after the object has been loaded from the nib file. Overriders must call base.AwakeFromNib().
+            </summary>
+            <remarks>
+            <para>The nib-loading infrastructure sends an awakeFromNib message to each object recreated from a nib archive, but only after all the objects in the archive have been loaded and initialized. When an object receives an awakeFromNib message, it is guaranteed to have all its outlet and action connections already established.</para>
+            <para>You must call the super implementation of awakeFromNib to give parent classes the opportunity to perform any additional initialization they require. Although the default implementation of this method does nothing, many UIKit classes provide non-empty implementations. You may call the super implementation at any point during your own awakeFromNib method.</para>
+            <para>During the instantiation process, each object in the archive is unarchived and then initialized with the method befitting its type. Objects that conform to the NSCoding protocol (including all subclasses of UIView and UIViewController) are initialized using their initWithCoder: method. All objects that do not conform to the NSCoding protocol are initialized using their init method. After all objects have been instantiated and initialized, the nib-loading code reestablishes the outlet and action connections for all of those objects. It then calls the awakeFromNib method of the objects. For more detailed information about the steps followed during the nib-loading process, see Nib Files in Resource Programming Guide.</para>
+            <para>Typically, you implement awakeFromNib for objects that require additional set up that cannot be done at design time. For example, you might use this method to customize the default configuration of any controls to match user preferences or the values in other controls. You might also use it to restore individual controls to some previous state of your application. </para>
+            <para>During Interface Builder’s test mode, this message is also sent to objects instantiated from loaded Interface Builder plug-ins. Because plug-ins link against the framework containing the object definition code, Interface Builder is able to call their awakeFromNib method when present. The same is not true for custom objects that you create for your Xcode projects. Interface Builder knows only about the defined outlets and actions of those objects; it does not have access to the actual code for them.</para>
+            <para>Because the order in which objects are instantiated from an archive is not guaranteed, your initialization methods should not send messages to other objects in the hierarchy. Messages to other objects can be sent safely from within an awakeFromNib method. </para>
+            </remarks>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1MaskedTextField"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.#ctor(CoreGraphics.CGRect)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1MaskedTextField"/> class with frame.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.Mask">
+            <summary>
+            Gets or sets the mask used to validate input as the user types. The mask must be a string composed of one or more of the masking elements.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.PlaceholderColor">
+            <summary>
+            Gets or sets the color of the Placeholder in the control.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.MaskFull">
+            <summary>
+            Gets a value that indicates whether the mask has been completely filled. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.PromptChar">
+            <summary>
+            Gets or sets the symbol used to show input positions in the control. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.Text">
+            <summary>
+            Gets or sets the text in the control. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.Placeholder">
+            <summary>
+            Gets or sets the Placeholder of the control.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.FlowDirection">
+            <summary>
+            Gets or sets a value that indicates whether that content should flow. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.FontSize">
+            <summary>
+            Gets or sets the size of the font. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.KeyboardType">
+            <summary>
+            Gets or sets the keyboard type. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.SecureTextEntry">
+            <summary>
+            Gets or sets the sercure text entry type. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.TextAlignment">
+            <summary>
+            Gets or sets the alignment of the text. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.FontFamily">
+            <summary>
+            Gets or sets the family of the font. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.FontAttributes">
+            <summary>
+            Gets or sets the attributes of the font. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.MaskCompleted">
+            <summary>
+            Gets or sets a value indicating whether show clear button.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.ShowClearButton">
+            <summary>
+            Gets or sets a value indicating whether show clear button.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.Value">
+            <summary>
+            Gets or sets the raw value of the control (excluding prompt and mask literals) 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1MaskedTextField.Padding">
+            <summary>
+            Gets or sets the padding of the control.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1MaskedTextField.TextChanged">
+            <summary>
+            Event raised when the text property changed. 
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.OnTextChanged(C1.iOS.Input.TextChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:TextChanged" /> event.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1MaskedTextField.Completed">
+            <summary>
+            Occurs when the user finalizes the text in an entry with the return key.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.OnCompleted(C1.iOS.Input.CompletedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Completed" /> event.
+            </summary>
+            <param name="e">The <see cref="T:C1.iOS.Input.CompletedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.LayoutSubviews">
+            <summary>
+            Lays out subviews.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.Cut(Foundation.NSObject)">
+            <summary>
+            Indicates a "Cut" editing operation.
+            </summary>
+            <param name="sender">Object calling this method.</param>
+        </member>
+        <member name="M:C1.iOS.Input.C1MaskedTextField.DrawPlaceholder(CoreGraphics.CGRect)">
+            <summary>
+            Draw placeholder string.
+            </summary>
+            <param name="rect">The rectangle for drawing.</param>
+        </member>
+        <member name="P:C1.iOS.Input.MaskElement.Wildcard">
+            <summary>
+            Gets or sets the mask wildcard char.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.MaskElement.CharCase">
+            <summary>
+            Gets or sets the type of char case.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.MaskElement.Literal">
+            <summary>
+            Gets or sets the mask literal char.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.MaskElement.IsOptional">
+            <summary>
+            Gets or sets whether the mask char is optional.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.MaskElement.IsVague">
+            <summary>
+            Gets or sets whether the literal can be interpreted as content.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.MaskHandler.Mask">
+            <summary>
+            Gets or sets the mask used to validate input as the user types. The mask must be a string composed of one or more of the masking elements.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.MaskHandler.MaskFull">
+            <summary>
+            Gets a value that indicates whether the mask has been completely filled. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.MaskHandler.IsDelete">
+            <summary>
+            Gets or sets the symbol used to show input positions in the control. 
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.C1DropDown">
+            <summary>
+            C1DropDown provides a generic drop-down control with a Header property that determines what the user sees when the drop-down part of the control is closed, and a Content property that determines what goes into the drop-down section.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.FlowDirectionProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.FlowDirection"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.ButtonBackgroundColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.ButtonBackgroundColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.HeaderBorderWidthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.HeaderBorderWidth"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.HeaderBackgroundColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.HeaderBackgroundColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.EditableHeaderBackgroundColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.EditableHeaderBackgroundColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.DropDownBackgroundColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.DropDownBackgroundColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.DropDownBorderColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.DropDownBorderColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.DropDownBorderWidthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.DropDownBorderWidth"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.ButtonColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.ButtonColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.CloseButtonTextColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.CloseButtonTextColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.CloseButtonBackgroundColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.CloseButtonBackgroundColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.MaxDropDownHeightProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.MaxDropDownHeight"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.MinDropDownHeightProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.MinDropDownHeight"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.HeaderBorderColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.HeaderBorderColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.DropDownProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.DropDown"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.ShowButtonProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.ShowButton"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.HeaderProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.Header"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.EditableHeaderProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.EditableHeader"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.IsEditableProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.IsEditable"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.IsAnimatedProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.IsAnimated"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.DropDownModeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.DropDownMode"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.IsDropDownOpenProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.IsDropDownOpen"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.DropDownHeightProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.DropDownHeight"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.DropDownWidthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.DropDownWidth"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.DropDownBehaviorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.DropDownBehavior"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.AutoCloseProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.AutoClose"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.ShowHeaderProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.ShowHeader"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.ShowEditableHeaderProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.ShowEditableHeader"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.ShowCloseButtonProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.ShowCloseButton"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.ShowClearButtonProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.ShowClearButton"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1DropDown.IsEnabledProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1DropDown.IsEnabled"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1DropDown.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1DropDown"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1DropDown.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1DropDown"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1DropDown.MovedToSuperview">
+            <summary>
+            Indicates the UIKit.UIView has had its UIKit.UIView.Superview property changed.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.Hidden">
+            <summary>
+            Specifies whether the UIKit.UIView displays or not.
+            </summary>        
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.ButtonBackgroundColor">
+            <summary>
+            Gets or sets the background of the button. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.DropDown">
+            <summary>
+            Gets or sets the drop-down view. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.HeaderBackgroundColor">
+            <summary>
+            Gets or sets the background color for the header. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.EditableHeaderBackgroundColor">
+            <summary>
+            Gets or sets the background color for the editable header. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.HeaderBorderWidth">
+            <summary>
+            Gets or sets the border thickness for the header. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.FlowDirection">
+            <summary>
+            Gets or sets a value that indicates whether that content should flow. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.ShowButton">
+            <summary>
+            Gets or sets a value that indicates whether the control should display a dropdown button. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.IsEnabled">
+            <summary>
+            Gets or sets whether the control should be enabled. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.HeaderBorderColor">
+            <summary>
+            Gets or sets the border color for the header. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.Header">
+            <summary>
+            Gets or sets the header view. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.EditableHeader">
+            <summary>
+            Gets or sets the editable header view. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.IsEditable">
+            <summary>
+             Gets or sets the value that enables or disables editing of the text in the control.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.IsAnimated">
+            <summary>
+            Gets or sets whether the control is animated. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.DropDownMode">
+            <summary>
+            Gets or sets the mode that the DropDown uses to display the DropDownView.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.DropDownBackgroundColor">
+            <summary>
+            Gets or sets the color of the drop-down. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.DropDownBorderColor">
+            <summary>
+            Gets or sets the color of the drop-down border. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.DropDownBorderWidth">
+            <summary>
+            Gets or sets the width of the drop-down border. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.ButtonColor">
+            <summary>
+            Gets or sets the color of the button content. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.CloseButtonTextColor">
+            <summary>
+            Gets or sets the color of the close button text. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.CloseButtonBackgroundColor">
+            <summary>
+            Gets or sets the background of the close button. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.IsDropDownOpen">
+            <summary>
+            Gets or sets a value that indicates whether the dropdown is currently visible. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.DropDownHeight">
+            <summary>
+            Gets or sets the height of the drop-down object. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.DropDownWidth">
+            <summary>
+            Gets or sets the width of the drop-down object. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.MaxDropDownHeight">
+            <summary>
+            Gets or sets the maximum length constraint of the drop-down box.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.MinDropDownHeight">
+            <summary>
+            Gets or sets the minimum length constraint of the drop-down box.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.DropDownBehavior">
+            <summary>
+            Gets or sets the drop-down behavior. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.AutoClose">
+            <summary>
+            Gets or sets auto closes the drop when the user hits outside it. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.ShowHeader">
+            <summary>
+            Gets or sets a value that indicates whether the header is currently visible. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.ShowEditableHeader">
+            <summary>
+            Gets or sets a value that indicates whether the editable header is currently visible. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.ShowCloseButton">
+            <summary>
+            Gets or sets a value that indicates whether the close button is currently visible in full screen. 
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.ShowCloseButtonInDropDownMode">
+            <summary>
+            Gets a value that indicates whether the close button is visible in currently DropDownMode.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1DropDown.ShowClearButton">
+            <summary>
+            Gets or sets a value that indicates whether the clear button show or not. 
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1DropDown.DropDownOpenChanged">
+            <summary>
+            Event raised when the IsDropDownOpen property has changed.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1DropDown.DropDownOpenChanging">
+            <summary>
+            Event raised before the IsDropDownOpenChanging property changes. 
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1DropDown.OnDropDownOpenChanged(C1.iOS.Input.DropDownOpenChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:DropDownOpenChanged" /> event.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1DropDown.OnDropDownOpenChanging(C1.iOS.Input.DropDownOpenChangingEventArgs)">
+            <summary>
+            Raises the <see cref="E:DropDownOpenChanging" /> event.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1DropDown.HitTest(CoreGraphics.CGPoint,UIKit.UIEvent)">
+            <summary>
+            Hit test when touched.
+            </summary>
+            <param name="point">The touched point.</param>
+            <param name="uievent">The touch event.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.iOS.Input.C1DropDown.WillMoveToWindow(UIKit.UIWindow)">
+            <summary>
+            This method is called by the runtime when assigning a new UIKit.UIWindow to the
+            UIKit.UIView's view hierarcy. This method will be called on all UIKit.UIViews
+            in the hierarchy, not just the top-level UIKit.UIView.
+            </summary>
+            <param name="window">Called before the window at the root of the UIKit.UIView's view hierarchy changes.This parameter can be null.</param>
+        </member>
+        <member name="M:C1.iOS.Input.C1DropDown.LayoutSubviews">
+            <summary>
+            Lays out subviews.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1DropDown.Disposed">
+            <summary>
+            Occurs when the object is disposed.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.DropDownView.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.DropDownView"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.DropDownView.AwakeFromNib">
+            <summary>
+            Called after the object has been loaded from the nib file. Overriders must call base.AwakeFromNib().
+            </summary>
+            <remarks>
+            <para>The nib-loading infrastructure sends an awakeFromNib message to each object recreated from a nib archive, but only after all the objects in the archive have been loaded and initialized. When an object receives an awakeFromNib message, it is guaranteed to have all its outlet and action connections already established.</para>
+            <para>You must call the super implementation of awakeFromNib to give parent classes the opportunity to perform any additional initialization they require. Although the default implementation of this method does nothing, many UIKit classes provide non-empty implementations. You may call the super implementation at any point during your own awakeFromNib method.</para>
+            <para>During the instantiation process, each object in the archive is unarchived and then initialized with the method befitting its type. Objects that conform to the NSCoding protocol (including all subclasses of UIView and UIViewController) are initialized using their initWithCoder: method. All objects that do not conform to the NSCoding protocol are initialized using their init method. After all objects have been instantiated and initialized, the nib-loading code reestablishes the outlet and action connections for all of those objects. It then calls the awakeFromNib method of the objects. For more detailed information about the steps followed during the nib-loading process, see Nib Files in Resource Programming Guide.</para>
+            <para>Typically, you implement awakeFromNib for objects that require additional set up that cannot be done at design time. For example, you might use this method to customize the default configuration of any controls to match user preferences or the values in other controls. You might also use it to restore individual controls to some previous state of your application. </para>
+            <para>During Interface Builder’s test mode, this message is also sent to objects instantiated from loaded Interface Builder plug-ins. Because plug-ins link against the framework containing the object definition code, Interface Builder is able to call their awakeFromNib method when present. The same is not true for custom objects that you create for your Xcode projects. Interface Builder knows only about the defined outlets and actions of those objects; it does not have access to the actual code for them.</para>
+            <para>Because the order in which objects are instantiated from an archive is not guaranteed, your initialization methods should not send messages to other objects in the hierarchy. Messages to other objects can be sent safely from within an awakeFromNib method. </para>
+            </remarks>
+        </member>
+        <member name="M:C1.iOS.Input.DropDownView.#ctor(CoreGraphics.CGRect)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.DropDownView"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.DropDownView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.DropDownView"/> class.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.DropDownView.DropDown">
+            <summary>
+            Gets or sets the dropDown.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.DropDownView.Disposed">
+            <summary>
+            Occurs when the object is disposed.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.AutoSizeMode.GrowAndShrink">
+            <summary>
+            Change its size according to the content size
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.AutoSizeMode.GrowOnly">
+            <summary>
+            Grows its size when the content is bigger but remains unchanged when the content size is smaller. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.AutoSizeMode.GrowHorizontally">
+            <summary>
+            Grows its size horizontally, but it shrink its size vertically if needed.
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.DropDownOpenChangedEventArgs">
+            <summary>
+            Event information for <see cref="E:C1DropDown.DropDownOpenChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.DropDownOpenChangedEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.DropDownOpenChangedEventArgs"/> class.
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.DropDownOpenChangingEventArgs">
+            <summary>
+            Event information for <see cref="E:C1DropDown.DropDownOpenChanging"/> event.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.DropDownOpenChangingEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.DropDownOpenChangingEventArgs"/> class.
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.C1ComboBox">
+            <summary>
+            C1ComboBox is an extension of DropDown that contains an editable textbox in the header and a listview in the drop-down.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1ComboBox"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1ComboBox"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.MovedToSuperview">
+            <summary>
+            Indicates the UIKit.UIView has had its UIKit.UIView.Superview property changed.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.TextColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.TextColor"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.SelectedBackgroundColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.SelectedBackgroundColor"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.TextAlignmentProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.TextAlignment"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.ItemsSourceProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.ItemsSource"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.DisplayMemberPathProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.DisplayMemberPath"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.AutoCompleteProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.AutoComplete"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.PlaceholderProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.Placeholder"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.TextProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.Text"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.SelectedIndexProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.SelectedIndex"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.SelectedItemProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.SelectedItem"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.SelectedValueProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.SelectedValue"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1ComboBox.SelectedValuePathProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1ComboBox.SelectedValuePath"/> dependency property.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1ComboBox.Completed">
+            <summary>
+            Occurs when the SelectedDate or SelectedDates properties change.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.ItemsSource">
+            <summary>
+            Gets or sets the source collection that contains the items to select from.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.DataCollection">
+            <summary>
+            Gets the underlying collection.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.AutoComplete">
+            <summary>
+            Gets or sets whether the control should try to automatically complete entries using the list of items.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.DisplayMemberPath">
+            <summary>
+            Gets or sets the name of the property to use as the visual representation of the items.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.SelectedIndex">
+            <summary>
+             Gets or sets the index of the selected item.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.SelectedItem">
+            <summary>
+            Gets or sets the current selected item.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.SelectedValue">
+            <summary>
+            Gets or sets the value of the currently selected item using SelectedValuePath.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.SelectedValuePath">
+            <summary>
+            Gets or sets the path that is used to get the value from the selected item.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.Text">
+            <summary>
+            Gets or sets the text of the control.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.Placeholder">
+            <summary>
+            Gets or sets the string shown as a hint when the control is empty.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.SelectedBackgroundColor">
+            <summary>
+            Gets or sets the selected background color.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.TextColor">
+            <summary>
+            Gets or sets the text color.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.TextAlignment">
+            <summary>
+            Gets or sets the alignment of input text.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1ComboBox.SelectedIndexChanged">
+            <summary>
+            Event raised before the SelectedIndexproperty changes.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1ComboBox.ItemLoading">
+            <summary>
+            Event raised before an item view is created.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.OnSelectedIndexChanged(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:SelectedIndexChanged" /> event.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.OnItemLoading(C1.iOS.Input.ComboBoxItemLoadingEventArgs)">
+            <summary>
+            Raises the <see cref="E:ItemLoading" /> event.
+            </summary>
+            <param name="e">The event args.</param>
+        </member>
+        <member name="E:C1.iOS.Input.C1ComboBox.TextChanged">
+            <summary>
+            Event raised before the Textproperty changes.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.OnTextChanged(C1.iOS.Input.TextChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:TextChanged" /> event.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.SelectAll">
+            <summary>
+            Sets the focus to the control and selects all of its contents. 
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.OnSelectedValuePropertyChanged(System.Object,System.Object)">
+            <summary>
+            Handle selectedValue property changed event.
+            </summary>
+            <param name="oldValue">The old value.</param>
+            <param name="newValue">The new value.</param>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.GetItemView(System.Object)">
+            <summary>
+            Gets the visual representation of an item.
+            </summary>
+            <param name="item">The data item.</param>
+            <returns>Visual representation of an item.</returns>
+        </member>
+        <member name="M:C1.iOS.Input.C1ComboBox.CreateItemView(System.Object)">
+            <summary>
+            Create the visual representation of an item.
+            </summary>
+            <param name="item">The data item.</param>
+            <returns>Visual representation of an item.</returns>
+        </member>
+        <member name="P:C1.iOS.Input.C1ComboBox.TextFont">
+            <summary>
+            Gets or sets the text font.
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.C1AutoComplete">
+            <summary>
+            The auto-complete control is an editable input control that shows completion suggestions automatically while the user is typing. The list of suggestions is displayed in a drop down menu from which the user.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1AutoComplete.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1AutoComplete"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1AutoComplete.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.C1AutoComplete"/> class.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1AutoComplete.DelayProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1AutoComplete.Delay"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1AutoComplete.MinLengthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1AutoComplete.MinLength"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1AutoComplete.HighlightColorProperty">
+            <summary>
+            Identifies the <see cref="P:C1.iOS.Input.C1AutoComplete.HighlightColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.C1AutoComplete.AutoCompleteModeProperty">
+            <summary>
+             Identifies the <see cref="P:C1.iOS.Input.C1AutoComplete.AutoCompleteMode"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1AutoComplete.HighlightColor">
+            <summary>
+            Gets or sets the matched text hightlight color.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1AutoComplete.Delay">
+            <summary>
+             Gets or sets the delay, in milliseconds, between when input occurs and when the search is performed.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1AutoComplete.MinLength">
+            <summary>
+             Gets or sets the minimum input length to trigger autocomplete suggestions.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1AutoComplete.FilterString">
+            <summary>
+            Gets the filter string used to show autocomplete suggestions.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.C1AutoComplete.AutoCompleteMode">
+            <summary>
+            Gets or sets the mode that the DropDown uses to display the DropDownView.
+            </summary>
+        </member>
+        <member name="E:C1.iOS.Input.C1AutoComplete.Filtering">
+            <summary>
+            Event raised when the control is about to apply a filter to the list of items.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.C1AutoComplete.OnFiltering(C1.iOS.Input.AutoCompleteFilteringEventArgs)">
+            <summary>
+            Handle Filtering event.
+            </summary>
+            <param name="e">The filtering event args</param>
+        </member>
+        <member name="M:C1.iOS.Input.C1AutoComplete.CreateItemView(System.Object)">
+            <summary>
+            Create the visual representation of an item.
+            </summary>
+            <param name="item">The data item.</param>
+            <returns>Visual representation of an item.</returns>
+        </member>
+        <member name="M:C1.iOS.Input.C1AutoComplete.GetFilterOperation">
+            <summary>
+            Get Filter Operation based on AutoCompleteMode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:C1.iOS.Input.AutoCompleteFilteringEventArgs">
+            <summary>
+            Event information for <see cref="E:C1AutoComplete.Filtering"/> event.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.AutoCompleteFilteringEventArgs.Cancel">
+            <summary>
+            Gets or sets whether to cancel the default filtering of the autocomplete.
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.AutoCompleteFilteringEventArgs.FilterString">
+            <summary>
+            Gets or sets the FilterString of the autocomplete.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.AutoCompleteFilteringEventArgs.#ctor(System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.iOS.Input.AutoCompleteFilteringEventArgs"/> class.
+            </summary>
+            <param name="cancel">cancel or not.</param>
+            <param name="filterString">The filter string.</param> 
+        </member>
+        <member name="T:C1.iOS.Input.DropDownBehavior">
+            <summary>
+            DropDown interaction behavior.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.DropDownBehavior.ButtonTap">
+            <summary>
+            The drop-down appears when the user taps the button.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.DropDownBehavior.HeaderTap">
+            <summary>
+            The drop-down appears when the user taps any part of the header.
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.MaskCharCaseType">
+            <summary>
+            Mask Character case type.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.MaskCharCaseType.None">
+            <summary>
+            Disable any previous converts in mask.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.MaskCharCaseType.Upper">
+            <summary>
+            Converts characters that follow to uppercase in mask.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.MaskCharCaseType.Lower">
+            <summary>
+            Converts characters that follow to lowercase in mask.
+            </summary>
+        </member>
+        <member name="T:C1.iOS.Input.DropDownMode">
+            <summary>
+            DropDown display mode.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.DropDownMode.Default">
+            <summary>
+            If the device is phone, then DropDownView is displayed in separate FullScreen page, if device is not phone, mode will be BelowOrAbove by default.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.DropDownMode.FullScreen">
+            <summary>
+            DropDownView is displayed in separate FullScreen page (similar to navigationpage) where user can select from list or navigate backwards by hitting back button
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.DropDownMode.AboveOrBelow">
+            <summary>
+            Tries to open the drop-down above the header. If it’s not possible it tries to open below.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.DropDownMode.BelowOrAbove">
+            <summary>
+            Tries to open the drop-down below the header. If it’s not possible it tries to open above. (default value).
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.DropDownMode.ForceAbove">
+            <summary>
+            Forces the drop-down to open above the header.
+            </summary>
+        </member>
+        <member name="F:C1.iOS.Input.DropDownMode.ForceBelow">
+            <summary>
+            Forces the drop-down to open below the header.
+            </summary>
+        </member>
+        <member name="M:C1.iOS.Input.ComboBoxHeaderView.Cut(Foundation.NSObject)">
+            <summary>
+            Indicates a "Cut" editing operation.
+            </summary>
+            <param name="sender">Object calling this method.</param>
+        </member>
+        <member name="M:C1.iOS.Input.ComboBoxHeaderView.UpdateClearButton(System.Boolean,System.Boolean)">
+            <summary>
+            Updates the clear button.
+            </summary>
+            <param name="isShowClearButton">if set to <c>true</c> [is show clear button].</param>
+            <param name="isEditable">if set to <c>true</c> [is editable].</param>
+        </member>
+        <member name="T:C1.iOS.Input.KeyboardShiftingHandler">
+            <summary>
+            Intended for supporting custom editor controls that are used inside DropDowns to handle keyboard shift properly
+            </summary>
+        </member>
+        <member name="P:C1.iOS.Input.ComboBoxDropDownView.TextColor">
+            <summary>
+            Gets or sets the text color.
+            </summary>
+        </member>
+    </members>
+</doc>

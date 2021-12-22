@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{114D5F91-D3C7-435B-AA71-93C18B286546}</ProjectGuid>
+        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <OutputType>Library</OutputType>
+        <RootNamespace>App1.Android</RootNamespace>
+        <AssemblyName>App1.Android</AssemblyName>
+        <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+        <AndroidApplication>True</AndroidApplication>
+        <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+        <AndroidResgenClass>Resource</AndroidResgenClass>
+        <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+        <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+        <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidLinkMode>None</AndroidLinkMode>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidManagedSymbols>true</AndroidManagedSymbols>
+        <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Core" />
+        <Reference Include="Mono.Android" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Controls\TableView\Adapters\BaseTableAdapter.cs" />
+        <Compile Include="Controls\TableView\Adapters\Cp3TableAdapter.cs" />
+        <Compile Include="Controls\TableView\Adapters\ITableAdapter.cs" />
+        <Compile Include="Controls\TableView\Cp3TableRecycler.cs" />
+        <Compile Include="Controls\TableView\Cp3TableView.cs" />
+        <Compile Include="Controls\TableView\Flinger.cs" />
+        <Compile Include="Controls\TableView\TableAdapterDataSetObserver.cs" />
+        <Compile Include="MainActivity.cs" />
+        <Compile Include="Resources\Resource.designer.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="Resources\AboutResources.txt" />
+        <None Include="Properties\AndroidManifest.xml" />
+        <None Include="Assets\AboutAssets.txt" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\drawable\bg_table_family.xml" />
+        <AndroidResource Include="Resources\drawable\bg_table_header.xml" />
+        <AndroidResource Include="Resources\drawable\item_table1.xml" />
+        <AndroidResource Include="Resources\drawable\item_table1_header.xml" />
+        <AndroidResource Include="Resources\drawable\separator_table.xml" />
+        <AndroidResource Include="Resources\drawable\separator_table_first.xml" />
+        <AndroidResource Include="Resources\drawable\separator_table_header.xml" />
+        <AndroidResource Include="Resources\drawable\separator_table_header_first.xml" />
+        <AndroidResource Include="Resources\drawable\shadow_bottom.xml" />
+        <AndroidResource Include="Resources\drawable\shadow_left.xml" />
+        <AndroidResource Include="Resources\drawable\shadow_right.xml" />
+        <AndroidResource Include="Resources\drawable\shadow_top.xml" />
+        <AndroidResource Include="Resources\layout\item_table.xml" />
+        <AndroidResource Include="Resources\layout\item_table1.xml" />
+        <AndroidResource Include="Resources\layout\item_table1_header.xml" />
+        <AndroidResource Include="Resources\layout\item_table_family.xml" />
+        <AndroidResource Include="Resources\layout\item_table_first.xml" />
+        <AndroidResource Include="Resources\layout\item_table_header.xml" />
+        <AndroidResource Include="Resources\layout\item_table_header_first.xml" />
+        <AndroidResource Include="Resources\layout\Main.axml" />
+        <AndroidResource Include="Resources\values\colors.xml" />
+        <AndroidResource Include="Resources\values\dimens.xml" />
+        <AndroidResource Include="Resources\values\ids.xml" />
+        <AndroidResource Include="Resources\values\strings.xml" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Controls\FixedGridLayoutManager" />
+    </ItemGroup>
+    <Import Project="..\App1\App1.projitems" Label="Shared" Condition="Exists('..\App1\App1.projitems')" />
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>

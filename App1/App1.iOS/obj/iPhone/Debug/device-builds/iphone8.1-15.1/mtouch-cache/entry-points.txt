@@ -1,0 +1,22 @@
+Function=xamarin_timezone_get_local_name
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/mscorlib.dll
+Function=xamarin_timezone_get_data
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/mscorlib.dll
+Function=xamarin_GetFolderPath
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/mscorlib.dll
+Function=xamarin_log
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/mscorlib.dll
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_release_managed_ref
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_set_gchandle_with_flags_safe
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=UIApplicationMain
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_find_protocol_wrapper_type
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_release_block_on_main_thread
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_get_block_descriptor
+	/Users/evgen.babin/RiderProjects/App1/App1/App1.iOS/obj/iPhone/Debug/device-builds/iphone8.1-15.1/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=mono_pmip
